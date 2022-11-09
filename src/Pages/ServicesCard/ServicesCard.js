@@ -8,7 +8,7 @@ const ServicesCard = ({ servicesDetails }) => {
   const { title, img_card, _id, description_one, price, rating } =
     servicesDetails;
   return (
-    <div>
+
       <div className="w-full max-w-sm  rounded-lg shadow-md bg-green-900">
    
           <PhotoProvider>
@@ -52,7 +52,7 @@ const ServicesCard = ({ servicesDetails }) => {
           </div>
         </div>
       </div>
-    </div>
+
   );
 };
 
