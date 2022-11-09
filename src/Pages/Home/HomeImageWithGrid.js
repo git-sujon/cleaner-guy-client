@@ -31,13 +31,13 @@ const HomeImageWithGrid = () => {
             <div class="grid grid-cols-2 gap-4 md:grid-cols-1 lg:grid-cols-2">
               <img
                 alt="Student"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFKvcMF9NGq4BvZh3oi6qaygCQWWExsJ0xVL0AuBaHgzfZK3WiH-Ir9iuBLWGSnMv8RBg&usqp=CAU"
+                src="https://5.imimg.com/data5/BS/SX/GLADMIN-64970353/commercial-housekeeping-services-500x500.jpg"
                 class="h-40 w-full object-cover sm:h-56 md:h-full"
               />
 
               <img
                 alt="Student"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe9eBJg3C_eLdpqE_r-bYU6lhwKoZ1IySl5-yyOnFCK6Hzwf4Uf0uBSsND405j9hiHa-8&usqp=CAU"
+                src="https://www.springcleaning.ae/wp-content/uploads/2017/04/20160809online-rendelheto-takaritas1.jpg"
                 class="h-40 w-full object-cover sm:h-56 md:h-full"
               />
             </div>
