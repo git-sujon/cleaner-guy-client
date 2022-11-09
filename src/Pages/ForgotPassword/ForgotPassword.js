@@ -23,7 +23,7 @@ const ForgotPassword = () => {
     return (
         <div>
          
-<body class="font-mono w-screen bg-green-100">
+<body class="font-mono w-screen h-screen bg-green-100">
 		
 		<div class="container mx-auto">
 			<div class="flex justify-center p-20 ">

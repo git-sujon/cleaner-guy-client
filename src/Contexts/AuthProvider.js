@@ -19,6 +19,8 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   console.log(user);
 
+
+
   const createAccount = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -39,13 +41,19 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  // Email Varification Will apply later 
   const emailVarification = () => {
     return sendEmailVerification(auth.currentUser);
   };
+
+
+  // Sending User name and Photo  
   const userInformationProviding = (profile) => {
     return updateProfile(auth.currentUser, profile);
   };
 
+
+  // Resting the password
   const userPasswordReset = (email) => {
     return sendPasswordResetEmail(auth, email)
   }
