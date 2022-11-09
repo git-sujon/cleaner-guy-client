@@ -13,7 +13,7 @@ const ServicesDetails = () => {
         <div className='Container px-8 mx-auto my-16'>
             <div className='grid grid-cols-1 md:grid-cols-5 gap-8'>
             <ServicesDetailsSection service={service}></ServicesDetailsSection>
-            <ServicesReviewsSection service={service}></ServicesReviewsSection>
+            <ServicesReviewsSection ></ServicesReviewsSection>
         </div>
         </div>
     );

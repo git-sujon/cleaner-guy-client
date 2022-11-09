@@ -14,6 +14,7 @@ import Contact from '../Pages/Others/Contact'
 import ForgotPassword from '../Pages/ForgotPassword/ForgotPassword';
 import MyReviews from '../Pages/Reviews/MyReviews/MyReviews';
 import AddMyservices from '../Pages/MyServices/AddMyservices';
+import ServicesReviewsSection from '../Pages/ServicesDetails/ServicesReviewsSection';
 
 
 
@@ -86,6 +87,7 @@ const Routes = createBrowserRouter([
                 element:<AddMyservices></AddMyservices>,
       
             },
+       
            
           
            
