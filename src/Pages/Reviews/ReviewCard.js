@@ -1,8 +1,8 @@
 import React from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const ReviewCard = ({reviews}) => {
-
-  
+  const {_id, reviewText, rating, userEmail, userName, userPhoto, reviewPhoto, Timestamp}= reviews
 
   return (
     <div>
@@ -10,11 +10,15 @@ const ReviewCard = ({reviews}) => {
         <div className="flex justify-between p-2">
           <div className="flex space-x-4">
             <div>
+            <PhotoProvider>
+            <PhotoView src={userPhoto}>
               <img
-                src="https://source.unsplash.com/100x100/?portrait"
-                alt=""
-                className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+             className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                src={userPhoto}
+                alt="reload"
               />
+            </PhotoView>
+          </PhotoProvider>
             </div>
             <div>
               <h4 className="font-bold">Leroy Jenkins</h4>
