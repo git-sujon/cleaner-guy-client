@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import Sppiner from "../Others/Sppiner";
 import Pagination from "../Pagination/Pagination";
 import ServicesCard from "../ServicesCard/ServicesCard";
 import HomeBanner from "./HomeBanner";
@@ -11,14 +12,13 @@ const Home = () => {
   //   const [dataLimit, setDataLimit] = useState(3);
   const { setLoading, loading } = useContext(AuthContext);
   const [services, setServices] = useState([]);
-  console.log(services);
 
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(3);
 
   const pages = Math.ceil(count / size);
-  console.log(count);
+
 
   useEffect(() => {
     const unSubscribe = fetch(
@@ -43,6 +43,9 @@ const Home = () => {
   return (
     <div>
       <HomeBanner></HomeBanner>
+      {
+        !services?.services && <Sppiner></Sppiner>
+      }
       <div className=" container my-20 px-4 mx-auto">
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {/* Services Data Loading  */}

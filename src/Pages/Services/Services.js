@@ -4,6 +4,7 @@ import ServicesCard from "../ServicesCard/ServicesCard";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  console.log(services)
 
 
   const [count, setCount] = useState(0);
@@ -21,10 +22,8 @@ const Services = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data.services)
-        if(!data) {
-          <Sppiner></Sppiner>
-        }
+        
+
         setServices(data);
         setCount(data?.count);
       });
@@ -38,8 +37,11 @@ const Services = () => {
   };
 
   return (
-    <div className="container px-8 mx-auto my-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="container px-8 mx-auto ">
+      {
+        !services?.services && <Sppiner></Sppiner>
+      }
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-20">
         {services?.services?.map((servicesDetails) => (
           <ServicesCard
             servicesDetails={servicesDetails}

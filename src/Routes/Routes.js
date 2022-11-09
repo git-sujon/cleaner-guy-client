@@ -13,6 +13,7 @@ import TermsAndCondition from '../Pages/Others/TermsAndCondition';
 import Contact from '../Pages/Others/Contact'
 import ForgotPassword from '../Pages/ForgotPassword/ForgotPassword';
 import MyReviews from '../Pages/Reviews/MyReviews/MyReviews';
+import AddMyservices from '../Pages/MyServices/AddMyservices';
 
 
 
@@ -77,6 +78,11 @@ const Routes = createBrowserRouter([
             {
                 path:'/myReviews',
                 element:<MyReviews></MyReviews>,
+      
+            },
+            {
+                path:'/addMyService',
+                element:<AddMyservices></AddMyservices>,
       
             },
            
