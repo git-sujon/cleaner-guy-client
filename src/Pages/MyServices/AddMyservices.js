@@ -1,10 +1,11 @@
 import { StarIcon } from "@heroicons/react/24/solid";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Contexts/AuthProvider";
 
 const AddMyservices = () => {
-//   const { title, img_card, _id, description_one, price } = servicesDetails;
+const {user} = useContext(AuthContext)
 
   const [rating, setRating] = useState(5);
   const navigate= useNavigate()
@@ -48,11 +49,11 @@ const AddMyservices = () => {
 
   return (
     <div>
-      <section class="bg-gray-100">
+      <section className="bg-gray-100">
       <h1 className="text-5xl text-center pt-5 font-bold text-emerald-700">ADD A Services</h1>
-        <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
            
-          <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
             {/* Live ShowCase  */}
 
             <div className="w-full max-w-sm  rounded-lg shadow-md lg:col-span-2 bg-green-900">
@@ -98,38 +99,40 @@ const AddMyservices = () => {
               </div>
             </div>
 
-            <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-              <form onSubmit={addServicesHandler} class="space-y-4">
+            <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+              <form onSubmit={addServicesHandler} className="space-y-4">
                 {/* title  */}
 
                 <div>
-                  <label class="sr-only" for="name">
+                  <label className="sr-only" for="name">
                     Title
                   </label>
                   <input
-                    class="w-full rounded-lg border border-emerald-300 p-3 text-sm"
+                    className="w-full rounded-lg border border-emerald-300 p-3 text-sm"
                     placeholder="Add a Title"
                     type="text"
                     name="title"
+                    required
                     id="name"
                   />
                 </div>
                 {/* title  */}
 
                 <div>
-                  <label class="sr-only" for="email">
+                  <label className="sr-only" for="email">
                     Add a image url
                   </label>
                   <input
-                    class="w-full rounded-lg border border-emerald-300 p-3 text-sm"
+                    className="w-full rounded-lg border border-emerald-300 p-3 text-sm"
                     placeholder="Add a image url"
                     type="text"
                     name="imgUrl"
+                    required
                     id="email"
                   />
                 </div>
 
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div className="flex items-center ">
                     <p className="mr-3 text-gray-400">Add Services Rating</p>
                     <select
@@ -149,50 +152,52 @@ const AddMyservices = () => {
                   </div>
 
                   <div>
-                    <label class="sr-only" for="phone">
+                    <label className="sr-only" for="phone">
                       Price
                     </label>
                     <input
-                      class="w-full  rounded-lg border border-emerald-300  p-3 text-sm"
+                      className="w-full  rounded-lg border border-emerald-300  p-3 text-sm"
                       placeholder="Add Services Price"
                       type="tel"
                       name="servicesPrice"
+                      required
                       id="phone"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label class="sr-only" for="message">
+                  <label className="sr-only" for="message">
                     Services Description
                   </label>
                   <textarea
-                    class="w-full rounded-lg border border-emerald-300 p-3 text-sm"
+                    className="w-full rounded-lg border border-emerald-300 p-3 text-sm"
                     placeholder="Add Services Description"
                     name="description"
                     rows="8"
+                    required
                     id="message"
                   ></textarea>
                 </div>
 
-                <div class="mt-4">
+                <div className="mt-4">
                   <button
                     type="submit"
-                    class="inline-flex w-full items-center justify-center rounded-lg hover:bg-emerald-800 bg-emerald-600 px-5 py-3 text-white sm:w-auto"
+                    className="inline-flex w-full items-center justify-center rounded-lg hover:bg-emerald-800 bg-emerald-600 px-5 py-3 text-white sm:w-auto"
                   >
-                    <span class="font-medium"> Add Services </span>
+                    <span className="font-medium"> Add Services </span>
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="ml-3 h-5 w-5"
+                      className="ml-3 h-5 w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M14 5l7 7m0 0l-7 7m7-7H3"
                       />
                     </svg>

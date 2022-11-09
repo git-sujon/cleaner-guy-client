@@ -1,6 +1,9 @@
 import React from "react";
 
-const ReviewCard = () => {
+const ReviewCard = ({reviews}) => {
+
+  
+
   return (
     <div>
       <div className="container flex flex-col w-full max-w-lg p-3 mx-auto divide-y rounded-md divide-gray-700 dark:bg-emerald-900 dark:text-white">
