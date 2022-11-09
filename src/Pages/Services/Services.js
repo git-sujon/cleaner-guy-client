@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
+import Sppiner from "../Others/Sppiner";
 import ServicesCard from "../ServicesCard/ServicesCard";
 
 const Services = () => {
   const [services, setServices] = useState([]);
-  console.log(services);
+
 
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
   const [size, setSize] = useState(0);
 
   const pages = Math.ceil(count / size);
-  console.log(count);
+
 
   useEffect(() => {
     const unSubscribe = fetch(
@@ -20,6 +21,10 @@ const Services = () => {
         return res.json();
       })
       .then((data) => {
+        console.log(data.services)
+        if(!data) {
+          <Sppiner></Sppiner>
+        }
         setServices(data);
         setCount(data?.count);
       });
