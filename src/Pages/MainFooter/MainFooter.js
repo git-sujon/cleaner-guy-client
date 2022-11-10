@@ -24,32 +24,32 @@ const MainFooter = () => {
             </li>
     
             <li>
-              <Link className="text-gray-700 transition hover:text-gray-700/75" to="/">
-                Reviews
-              </Link>
-            </li>
-    
-            <li>
-              <Link className="text-gray-700 transition hover:text-gray-700/75" to="/">
-                History
-              </Link>
-            </li>
-    
-            <li>
-              <Link className="text-gray-700 transition hover:text-gray-700/75" to="/">
+              <Link className="text-gray-700 transition hover:text-gray-700/75" to="/services">
                 Services
               </Link>
             </li>
     
             <li>
-              <Link className="text-gray-700 transition hover:text-gray-700/75" to="/">
-                Projects
+              <Link className="text-gray-700 transition hover:text-gray-700/75" to="/login">
+                Login
               </Link>
             </li>
     
             <li>
-              <Link className="text-gray-700 transition hover:text-gray-700/75" to="/">
+              <Link className="text-gray-700 transition hover:text-gray-700/75" to="/register">
+                Register
+              </Link>
+            </li>
+    
+            <li>
+              <Link className="text-gray-700 transition hover:text-gray-700/75" to="/blog">
                 Blog
+              </Link>
+            </li>
+    
+            <li>
+              <Link className="text-gray-700 transition hover:text-gray-700/75" to="/contact">
+                Contact Us
               </Link>
             </li>
           </ul>
@@ -170,6 +170,7 @@ const MainFooter = () => {
           </li>
         </ul>
       </div>
+      <p className='text-md py-1 shadow border border-gray-400 font-bold text-center text-green-900'> <span>&copy;</span>  <a href="https://github.com/git-sujon">Moniruzzaman Sujon 2022</a></p>
     </footer>
     
     );

@@ -4,13 +4,14 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../Assets/logo/logo_black.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import Sppiner from "../Others/Sppiner";
 const Login = () => {
     const {
         createAccount,
         signInwithProvider,
         emailVarification,
         userInformationProviding,
-        setLoading,login
+        setLoading,login, loading,
       } = useContext(AuthContext);
       const googleProvider= new GoogleAuthProvider()
       const [error, setError] = useState("");
@@ -30,9 +31,9 @@ const Login = () => {
     .then((res) => {
       form.reset()
       const user=res.user
-
-    //   navigate(from, {replace:true})
-   
+      setLoading(true)
+      navigate(from, {replace:true})
+  
     })
     .catch(error => {
       setError(error.message);
@@ -50,6 +51,7 @@ const Login = () => {
     signInwithProvider(googleProvider)
       .then((res) => {
         console.log(res);
+        navigate(from, {replace:true})
       })
       .catch((error) => {
         console.error(error);
