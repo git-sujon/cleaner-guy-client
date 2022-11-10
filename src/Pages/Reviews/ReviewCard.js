@@ -1,6 +1,7 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import { Link } from "react-router-dom";
 
 const ReviewCard = ({reviews, deleteReviewsHandler}) => {
 
@@ -55,7 +56,7 @@ const ReviewCard = ({reviews, deleteReviewsHandler}) => {
           </div>
           {/* Update Button  */}
           <div>
-            <PencilSquareIcon className="w-6 text-amber-300 hover:text-amber-500 hover:border-2"></PencilSquareIcon>
+            <Link to={`/myReviews/${_id}`} ><PencilSquareIcon className="w-6 text-amber-300 hover:text-amber-500 hover:border-2"></PencilSquareIcon></Link>
           </div>
         </div>
       </div>

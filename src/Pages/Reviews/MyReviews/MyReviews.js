@@ -9,32 +9,45 @@ const MyReviews = () => {
 
   const [allReviews, setAllReviews] = useState(loadedReviews);
 
-    
+  const [hidden, setHidden] = useState(false)
+
+  const [isDelete, setIsDelete] = useState(false)
+
+
   
   const deleteReviewsHandler = (review) => {
-    fetch(`http://localhost:5000/reviews/${review._id}`, {
+    // setHidden(true)
+    
+    // if(isDelete) {
+      fetch(`http://localhost:5000/reviews/${review._id}`, {
       method: "DELETE",
      
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+      
         if(data.deletedCount > 0) {
             toast.success("Review Deleted Successfully")
-            
             const remainingReviews= allReviews.filter(SingleReview => SingleReview._id !== review._id)
             setAllReviews(remainingReviews)
-
-
+            console.log(isDelete)
+            
         }
-        
+        // setIsDelete(!isDelete)
       })
-      .catch((err) => console.log(err));
+   
+    // }
   };
 
-  const updateReviewsHandler = (review) => {
-    fetch(`http://localhost:5000/reviews/${review._id}`);
-  };
+  // const updateReviewsHandler = (review) => {
+  //   fetch(`http://localhost:5000/reviews/${review._id}`, {
+  //     method:"PUT", 
+  //     headers: {
+  //         "content-type": "application/json"
+  //     },
+  //     body:JSON.stringify(review)
+  //   });
+  // };
 
   return (
     <div className="container px-4 mx-auto my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -45,7 +58,11 @@ const MyReviews = () => {
         reviews={reviews}></ReviewCard>
       ))}
 
-      {/* <ReviewDeleteModal></ReviewDeleteModal> */}
+      {/* <div onClick={()=>setHidden(!hidden)}>
+        {
+          hidden && <ReviewDeleteModal setIsDelete = {setIsDelete}></ReviewDeleteModal>
+        }
+      </div> */}
     </div>
 
   );

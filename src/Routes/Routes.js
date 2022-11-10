@@ -15,6 +15,7 @@ import ForgotPassword from '../Pages/ForgotPassword/ForgotPassword';
 import MyReviews from '../Pages/Reviews/MyReviews/MyReviews';
 import AddMyservices from '../Pages/MyServices/AddMyservices';
 import ServicesReviewsSection from '../Pages/ServicesDetails/ServicesReviewsSection';
+import UpdateReviews from '../Pages/Reviews/UpdateReviews';
 
 
 
@@ -80,6 +81,12 @@ const Routes = createBrowserRouter([
                 path:'/myReviews',
                 element:<MyReviews></MyReviews>,
                 loader:()=> fetch(`http://localhost:5000/reviews`)
+      
+            },
+            {
+                path:'/myReviews/:id',
+                element:<UpdateReviews></UpdateReviews>,
+                loader:({params})=> fetch(`http://localhost:5000/reviews/${params.id}`)
       
             },
             {
