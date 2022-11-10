@@ -21,7 +21,7 @@ const MyReviews = () => {
 
 
 useEffect(()=> {
-  fetch(`http://localhost:5000/reviews?userEmail=${user?.email}`, {
+  fetch(`https://cleaner-guy-server.vercel.app/reviews?userEmail=${user?.email}`, {
     headers: {
       authorization : `Bearer ${localStorage.getItem('CleanerGuy')}`
     }
@@ -44,7 +44,7 @@ useEffect(()=> {
     // setHidden(true)
     
     // if(isDelete) {
-      fetch(`http://localhost:5000/reviews/${review._id}`, {
+      fetch(`https://cleaner-guy-server.vercel.app/reviews/${review._id}`, {
       method: "DELETE",
      
     })

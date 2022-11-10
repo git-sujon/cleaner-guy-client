@@ -18,7 +18,7 @@ const Services = () => {
 
   useEffect(() => {
     const unSubscribe = fetch(
-      `http://localhost:5000/services?page=${page}&size=${size}`
+      `https://cleaner-guy-server.vercel.app/services?page=${page}&size=${size}`
     )
       .then((res) => {
         return res.json();

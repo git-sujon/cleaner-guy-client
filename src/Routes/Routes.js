@@ -48,7 +48,7 @@ const Routes = createBrowserRouter([
             {
                 path:'/services/:id',
                 element:<ServicesDetails></ServicesDetails>,
-                loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=> fetch(`https://cleaner-guy-server.vercel.app/services/${params.id}`)
       
             },
 
@@ -87,7 +87,7 @@ const Routes = createBrowserRouter([
             {
                 path:'/myReviews/:id',
                 element:<PrivateRoute><UpdateReviews></UpdateReviews></PrivateRoute>,
-                loader:({params})=> fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader:({params})=> fetch(`https://cleaner-guy-server.vercel.app/reviews/${params.id}`)
       
             },
             {
@@ -105,12 +105,12 @@ const Routes = createBrowserRouter([
             {
                 path:'/blog',
                 element: <Blog></Blog>,
-                loader:()=>fetch('http://localhost:5000/blog')
+                loader:()=>fetch('https://cleaner-guy-server.vercel.app/blog')
             },
             {
                 path:'/blog/:id',
                 element: <BlogDetails></BlogDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
+                loader:({params})=>fetch(`https://cleaner-guy-server.vercel.app/blog/${params.id}`)
             },
            
            
