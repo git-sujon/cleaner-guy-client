@@ -8,7 +8,13 @@ const ReviewCard = ({reviews, deleteReviewsHandler}) => {
 
 
 
-  const {_id, reviewText, rating, userEmail, userName, userPhoto, reviewPhoto, Timestamp}= reviews
+  const {_id, reviewText, rating, userEmail, userName, userPhoto, reviewPhoto, Timestamp, service}= reviews
+  
+  const dateTime= new Date(Timestamp)
+
+
+  
+  // const time= dateTime.split(' ') 
 
   return (
     <div>
@@ -28,7 +34,7 @@ const ReviewCard = ({reviews, deleteReviewsHandler}) => {
             </div>
             <div>
               <h4 className="font-bold">{userName}</h4>
-              <span className="text-xs dark:text-white">2 days ago</span>
+              <span className="text-xs dark:text-white">{dateTime.toLocaleString()}</span>
             </div>
           </div>
           <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -43,8 +49,9 @@ const ReviewCard = ({reviews, deleteReviewsHandler}) => {
           </div>
         </div>
         <div className="p-4 space-y-2 text-sm dark:text-white">
+          <p>Services Name: {service?.title}</p>
           <p>
-            {reviewText}
+           Reviews: {reviewText}
           </p>
         
         </div>

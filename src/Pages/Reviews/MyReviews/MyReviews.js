@@ -8,6 +8,7 @@ const MyReviews = () => {
   const loadedReviews = useLoaderData();
 
   const [allReviews, setAllReviews] = useState(loadedReviews);
+  console.log(allReviews)
 
   const [hidden, setHidden] = useState(false)
 
@@ -39,15 +40,7 @@ const MyReviews = () => {
     // }
   };
 
-  // const updateReviewsHandler = (review) => {
-  //   fetch(`http://localhost:5000/reviews/${review._id}`, {
-  //     method:"PUT", 
-  //     headers: {
-  //         "content-type": "application/json"
-  //     },
-  //     body:JSON.stringify(review)
-  //   });
-  // };
+
 
   return (
     <div className="container px-4 mx-auto my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

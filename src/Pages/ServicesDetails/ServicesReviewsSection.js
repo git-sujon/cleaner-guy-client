@@ -5,7 +5,7 @@ import { AuthContext } from "../../Contexts/AuthProvider";
 import ReviewCard from "../Reviews/ReviewCard";
 import ReviewForm from "../Reviews/ReviewForm";
 
-const ServicesReviewsSection = () => {
+const ServicesReviewsSection = ({service}) => {
   const { user } = useContext(AuthContext);
   const [allReviews, setAllReviews] = useState([])
   
@@ -21,7 +21,7 @@ const ServicesReviewsSection = () => {
     <div className="col-span-2 shadow">
       <div className="border border-gray-200 p-4">
         {user?.email ? (
-          <ReviewForm></ReviewForm>
+          <ReviewForm service={service}></ReviewForm>
         ) : (
           <div className="text-center my-5">
             <p className="text-3xl font-semibold my-3">
