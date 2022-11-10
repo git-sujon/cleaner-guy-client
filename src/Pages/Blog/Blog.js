@@ -1,8 +1,10 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import UseTitle from "../../Hooks/UseTitle";
 import DisplayBlogPost from "../DisplayBlogPost/DisplayBlogPost";
 
 const Blog = () => {
+  UseTitle('Blog')
   const allPosts = useLoaderData();
   return (
     <div className="container px-4 mx-auto mt-12 mb-32">

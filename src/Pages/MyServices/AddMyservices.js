@@ -3,8 +3,10 @@ import React, { useContext, useState } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import UseTitle from "../../Hooks/UseTitle";
 
 const AddMyservices = () => {
+  UseTitle('Add Services')
 const {user} = useContext(AuthContext)
 
   const [rating, setRating] = useState(5);

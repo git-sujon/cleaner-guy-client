@@ -1,10 +1,12 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import UseTitle from "../../Hooks/UseTitle";
 
 const BlogDetails = () => {
   const blogDetaills = useLoaderData();
-  const { id, img, question, CATEGORY, ans_p_one, cover_img, ans_p_two } =
+  const { _id, img, question, CATEGORY, ans_p_one, cover_img, ans_p_two } =
     blogDetaills;
+    UseTitle(`Blog- ${question}`)
 
   return (
     <div>

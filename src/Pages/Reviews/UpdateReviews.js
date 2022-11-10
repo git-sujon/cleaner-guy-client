@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import UseTitle from '../../Hooks/UseTitle';
 
 const UpdateReviews = () => {
+  UseTitle('Update Reviews')
     const reviews = useLoaderData()
     // console.log(reviews)
 

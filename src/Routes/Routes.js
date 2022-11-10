@@ -102,16 +102,16 @@ const Routes = createBrowserRouter([
            
            
            
-            // {
-            //     path:'/blog',
-            //     element: <Blog></Blog>,
-            //     loader:()=>fetch('https://erudite-server-side.vercel.app/blog')
-            // },
-            // {
-            //     path:'/blog/:id',
-            //     element: <BlogDetails></BlogDetails>,
-            //     loader:({params})=>fetch(`https://erudite-server-side.vercel.app/blog/${params.id}`)
-            // },
+            {
+                path:'/blog',
+                element: <Blog></Blog>,
+                loader:()=>fetch('http://localhost:5000/blog')
+            },
+            {
+                path:'/blog/:id',
+                element: <BlogDetails></BlogDetails>,
+                loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
+            },
            
            
           

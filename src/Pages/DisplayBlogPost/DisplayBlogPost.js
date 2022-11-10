@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const DisplayBlogPost = ({ posts }) => {
 
-    const {id, img, question, CATEGORY, ans_p_one } =posts
+    const {_id, img, question, CATEGORY, ans_p_one } =posts
   return (
     <div>
       <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
-        <Link to={`/blog/${id}`}>
+        <Link to={`/blog/${_id}`}>
         <img
           alt="Office"
           src={img}
@@ -20,7 +20,7 @@ const DisplayBlogPost = ({ posts }) => {
             10th Oct 2022
           </time>
 
-          <Link to={`/blog/${id}`} >
+          <Link to={`/blog/${_id}`} >
             <h3 className="my-10 text-lg text-gray-900 h-12">
              {question}
             </h3>
