@@ -12,9 +12,7 @@ const MainFooter = () => {
         </div>
     
         <p className="mx-auto mt-3   text-center leading-relaxed text-gray-600 font-semibold">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-          consequuntur amet culpa cum itaque neque.
-          consequuntur amet culpa cum itaque neque.
+        Cleaning is created for your professional business, why not purchase and make the difference today? Get more customers who are thirsty to run to hire your service.
         </p>
     
         <nav aria-label="Footer Nav" className="mt-6">

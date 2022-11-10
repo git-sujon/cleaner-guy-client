@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import NavBar from '../Pages/Header/Header';
+import Header from '../Pages/Header/Header';
 import MainFooter from '../Pages/MainFooter/MainFooter';
 
 
@@ -10,7 +10,7 @@ import MainFooter from '../Pages/MainFooter/MainFooter';
 const Main = () => {
     return (
         <div>
-            <NavBar></NavBar>
+            <Header></Header>
             <Outlet  ></Outlet>
             <MainFooter></MainFooter>
         </div>

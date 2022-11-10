@@ -7,7 +7,7 @@ const HomeImageWithGrid = () => {
       <section>
         <div className="mx-auto max-w-screen-2xl  py-8 ">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <div className="bg-teal-600 p-8 md:p-12 lg:px-16 lg:py-24">
+            <div className="bg-green-600 p-8 md:p-12 lg:px-16 lg:py-24">
               <div className="mx-auto max-w-xl text-center">
                 <h2 className="text-2xl font-bold text-white md:text-3xl">
                 We Are Best Solution For Your House Cleaning Services
