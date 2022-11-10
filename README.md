@@ -1,6 +1,6 @@
 # Project Summary:-
-### - Project Name: [CleanerGuy](https://erudite-courses-site.web.app/).
-### - Live Site: https://erudite-courses-site.web.app/
+### - Project Name: [CleanerGuy](https://cleaner-guy-f75f8.web.app/).
+### - Live Site: https://cleaner-guy-f75f8.web.app//
 ### - Project type: Services Review Website
 # Uses Technology on Project:-
 ### - Basic:  HTML5, CSS3, React.JS
