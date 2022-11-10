@@ -81,7 +81,7 @@ const Header = () => {
 
         <li className="mx-4 my-6 md:my-0">
           <NavLink
-            to="#"
+            to="/blog"
             className="text-md font-bold hover:text-cyan-300 duration-500"
           >
             Blog
@@ -89,7 +89,7 @@ const Header = () => {
         </li>
         <li className="mx-4 my-6 md:my-0">
           <NavLink
-            to="#"
+            to="/contact"
             className="text-md font-bold hover:text-cyan-300 duration-500"
           >
             Contact Us

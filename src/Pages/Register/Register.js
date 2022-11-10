@@ -4,9 +4,10 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from '../../Assets/logo/logo_black.png'
 import { AuthContext } from "../../Contexts/AuthProvider";
+import UseTitle from "../../Hooks/UseTitle";
 
 const Register = () => {
-
+  UseTitle('Register')
     const { createAccount, signInwithProvider, emailVarification,
         userInformationProviding,
         setLoading, } = useContext(AuthContext);
@@ -31,15 +32,46 @@ const Register = () => {
         .then((res) => {
           console.log(res);
           handelUserInformationProviding(name, photoUrl);
-      
-          setLoading(false);
           form.reset();
-          navigate(from, {replace:true})
+          setLoading(false);
+          
+
+
+          const user=res.user
+          setLoading(true)
+          const curentUser = {
+            email: user.email,
+          };
+    
+     // JWT Token Implement
+    
+     fetch(`http://localhost:5000/jwt`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(curentUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // Local Storage is not the best placee to  store
+        localStorage.setItem("CleanerGuy", data.token);
+    
+        navigate(from, { replace: true });
+      })
+      
         })
-        .catch((error) => {
+        .catch(error => {
+          setError(error.message);
           console.error(error);
-          setError(error.message)
-        });
+          
+        })
+    
+        .finally(()=> {
+          setLoading(false)
+        })
+    
   
   
         const handelUserInformationProviding = (name, photoUrl) => {
@@ -61,15 +93,40 @@ const Register = () => {
 
       };
 
-      const googleProviderHandler =() =>{
+      const googleProviderHandler = () => {
         signInwithProvider(googleProvider)
-        .then(res => {
-            console.log(res)
-            navigate(from, {replace:true})
-        })
-        .catch(error => {
-            console.error(error)
-        })
+          .then((res) => {
+            const user=res.user
+          setLoading(true)
+          const curentUser = {
+            email: user.email,
+          };
+    
+     // JWT Token Implement
+    
+     fetch(`http://localhost:5000/jwt`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(curentUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // Local Storage is not the best placee to  store
+        localStorage.setItem("CleanerGuy", data.token);
+    
+        navigate(from, { replace: true });
+      })
+          })
+          .catch((error) => {
+            console.error(error);
+          })
+          .finally(()=> {
+            setLoading(false)
+          })
+          
       }
 
 

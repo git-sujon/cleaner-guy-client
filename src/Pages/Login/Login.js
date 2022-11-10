@@ -4,8 +4,11 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../Assets/logo/logo_black.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import UseTitle from "../../Hooks/UseTitle";
+
 import Sppiner from "../Others/Sppiner";
 const Login = () => {
+  UseTitle('Login')
     const {
         createAccount,
         signInwithProvider,
@@ -32,7 +35,33 @@ const Login = () => {
       form.reset()
       const user=res.user
       setLoading(true)
-      navigate(from, {replace:true})
+      const curentUser = {
+        email: user.email,
+      };
+
+ // JWT Token Implement
+
+ fetch(`http://localhost:5000/jwt`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify(curentUser),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    // Local Storage is not the best placee to  store
+    localStorage.setItem("CleanerGuy", data.token);
+
+    navigate(from, { replace: true });
+  })
+
+
+
+
+
+     
   
     })
     .catch(error => {
@@ -50,12 +79,37 @@ const Login = () => {
   const googleProviderHandler = () => {
     signInwithProvider(googleProvider)
       .then((res) => {
-        console.log(res);
-        navigate(from, {replace:true})
+        const user=res.user
+      setLoading(true)
+      const curentUser = {
+        email: user.email,
+      };
+
+ // JWT Token Implement
+
+ fetch(`http://localhost:5000/jwt`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify(curentUser),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    // Local Storage is not the best placee to  store
+    localStorage.setItem("CleanerGuy", data.token);
+
+    navigate(from, { replace: true });
+  })
       })
       .catch((error) => {
         console.error(error);
-      });
+      })
+      .finally(()=> {
+        setLoading(false)
+      })
+      
   }
 
   return (

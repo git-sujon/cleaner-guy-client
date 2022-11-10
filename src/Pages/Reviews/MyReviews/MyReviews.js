@@ -2,12 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import UseTitle from "../../../Hooks/UseTitle";
+
 import ReviewDeleteModal from "../../Others/ReviewDeleteModal";
+import Sppiner from "../../Others/Sppiner";
 import ReviewCard from "../ReviewCard";
 
 const MyReviews = () => {
+  UseTitle('My Reviews')
   const loadedReviews = useLoaderData();
-  const {user} = useContext(AuthContext)
+  const {user, logOut} = useContext(AuthContext)
 
   const [allReviews, setAllReviews] = useState([]);
   console.log(allReviews)
@@ -17,14 +21,22 @@ const MyReviews = () => {
 
 
 useEffect(()=> {
-  fetch(`http://localhost:5000/reviews?userEmail=${user?.email}`)
-  .then(res => res.json())
-  .then(data =>{
-    console.log(data)
-    setAllReviews(data)
+  fetch(`http://localhost:5000/reviews?userEmail=${user?.email}`, {
+    headers: {
+      authorization : `Bearer ${localStorage.getItem('CleanerGuy')}`
+    }
   })
-
-}, [user?.email])
+  .then((res) => {
+        if(res.status === 401 || res.status === 403) {
+         return logOut()
+        }
+        <Sppiner></Sppiner>
+        return res.json()
+      })
+      .then((data) => {
+        setAllReviews(data);
+      });
+  }, [user?.email, logOut]);
   
 
 

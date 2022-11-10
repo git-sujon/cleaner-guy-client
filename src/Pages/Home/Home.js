@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import UseTitle from "../../Hooks/UseTitle";
+
 import Sppiner from "../Others/Sppiner";
 import Pagination from "../Pagination/Pagination";
 import ServicesCard from "../ServicesCard/ServicesCard";
@@ -8,8 +10,10 @@ import HomeBanner from "./HomeBanner";
 import HomeImageWithGrid from "./HomeImageWithGrid";
 import LetUsCallYou from "./LetUsCallYou";
 
+
 const Home = () => {
   //   const [dataLimit, setDataLimit] = useState(3);
+  UseTitle('Home')
   const { setLoading, loading } = useContext(AuthContext);
   const [services, setServices] = useState([]);
 
@@ -21,6 +25,7 @@ const Home = () => {
 
 
   useEffect(() => {
+
     const unSubscribe = fetch(
       `http://localhost:5000/services?page=${page}&size=${size}`
     )

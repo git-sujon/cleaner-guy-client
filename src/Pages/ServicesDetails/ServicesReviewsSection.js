@@ -1,21 +1,25 @@
 import userEvent from "@testing-library/user-event";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState , useEffect} from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import ReviewCard from "../Reviews/ReviewCard";
 import ReviewForm from "../Reviews/ReviewForm";
+import Sppiner from '../Others/Sppiner'
 
 const ServicesReviewsSection = ({service}) => {
   const { user } = useContext(AuthContext);
   const [allReviews, setAllReviews] = useState([])
+  console.log(allReviews)
   
 
   // loaded Reviews 
-  fetch(`http://localhost:5000/reviews`)
-  .then(res => res.json())
-  .then(data => {
-    setAllReviews(data)
-  })
+  useEffect(()=> {
+    fetch(`http://localhost:5000/allreviews?id=${service._id}`)
+    .then(res => res.json())
+    .then(data => {
+      setAllReviews(data)
+    })
+  }, [service._id])
 
   return (
     <div className="col-span-2 shadow">
