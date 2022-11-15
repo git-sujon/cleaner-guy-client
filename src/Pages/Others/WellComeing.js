@@ -6,8 +6,8 @@ const WellComeing = () => {
     const {user} = useContext(AuthContext)
 
     return (
-        <header aria-label="Page Header">
-        <div className="mx-auto bg-transparent max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
+        <header aria-label="Page Header ">
+        <div className="mx-auto bg-transparent mb-10 max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
           <div className="sm:flex sm:items-center sm:justify-between">
             <div className="text-center sm:text-left">
               <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
@@ -43,7 +43,7 @@ const WellComeing = () => {
               </button>
       
               <Link to='/profile'
-                className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+                className="block rounded-lg bg-green-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-green-700 focus:outline-none focus:ring"
                 type="button"
               >
                 Visit Profile

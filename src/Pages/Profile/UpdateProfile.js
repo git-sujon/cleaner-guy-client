@@ -41,7 +41,7 @@ const navigate = useNavigate()
     <div className="md:w-1/2 px-10 mx-auto py-10">
         <h1 className="text-center text-5xl font-bold mb-10">Update Your Profile</h1>
         <form onSubmit={updateProfileHandler}>
-          <div className="grid xl:grid-cols-2 xl:gap-x-6">
+          <div className="grid xl:grid-cols-2 gap-6">
             <div className="relative z-0  w-full group">
               <input
                 type="text"
