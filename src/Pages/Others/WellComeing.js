@@ -4,6 +4,7 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 
 const WellComeing = () => {
     const {user} = useContext(AuthContext)
+
     return (
         <header aria-label="Page Header">
         <div className="mx-auto bg-transparent max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
@@ -14,7 +15,7 @@ const WellComeing = () => {
               </h1>
       
               <p className="mt-1.5 text-sm text-gray-500">
-              Hope you had a great time, and we're happy to have you back! 🤝 🎉 🥂
+              Hope you had a great time , and we're happy to have you back! 🤝 🎉 🥂
               </p>
             </div>
       
