@@ -9,6 +9,7 @@ const Header = () => {
   // console.log(user)
 
   const [open, setOpen] = useState(true);
+  const [profileOpen, setProfileOpen] = useState(true);
 
   const signOutHandler = () => {
     logOut()
@@ -30,7 +31,6 @@ const Header = () => {
             onClick={() => setOpen(!open)}
             className="w-10 text-white"
             name="menu"
-            
           ></Bars3Icon>
         </span>
       </div>
@@ -97,30 +97,71 @@ const Header = () => {
         </li>
 
         {user?.email ? (
+          <div className="flex  items-center">
+            <div>
+              <button
+                onClick={signOutHandler}
+                className="group relative inline-block overflow-hidden border border-orange-600 px-8 py-3 focus:outline-none focus:ring "
+              >
+                <span className="absolute inset-y-0 left-0 w-[2px] bg-orange-600 transition-all group-hover:w-full group-active:bg-orange-500"></span>
 
-          <div className="flex items-center"> <button
-          onClick={signOutHandler}
-          className="group relative inline-block overflow-hidden border border-orange-600 px-8 py-3 focus:outline-none focus:ring "
-        >
-          <span className="absolute inset-y-0 left-0 w-[2px] bg-orange-600 transition-all group-hover:w-full group-active:bg-orange-500"></span>
+                <span className="relative text-sm font-medium text-orange-100 transition-colors group-hover:text-white">
+                  LogOut
+                </span>
+              </button>
+            </div>
 
-          <span className="relative text-sm font-medium text-orange-100 transition-colors group-hover:text-white">
-            LogOut
-          </span>
-        </button><Link to='/profile' className="ml-3">  <img className="w-12  rounded-full  border-2 border-white" src={user?.photoURL} alt=""/></Link></div>
+            {/* profile  */}
+            <div className="ml-3 relative">
+              <button
+                onClick={() => setProfileOpen(!profileOpen)}
+                className="inline-flex  text-gray-600 "
+              >
+                <img
+                  className="w-12  rounded-full  border-2 hover:border-gray-900 border-white"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              </button>
 
-         
+              {/* Dropdown menus */}
+              <div class={` ${profileOpen ? "hidden" : '' } `}>
+                <div
+                  class="absolute block right-0 z-10 mt-4 w-56 origin-top-right rounded-md border border-gray-100 bg-green-100 shadow-lg"
+                  role="menu"
+                >
+                  <div class="p-2">
+                    <Link
+                      to="/profile"
+                      class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                      role="menuitem"
+                    >
+                      View profile
+                    </Link>
+
+                    <Link
+                      to="/addMyService"
+                      class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                      role="menuitem"
+                    >
+                      Add Services
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Dropdown Menus End  */}
+            </div>
+          </div>
         ) : (
           <Link to="/login">
-              <button
-            className="group relative inline-block overflow-hidden border border-orange-600 px-8 py-3 focus:outline-none focus:ring "
-          >
-            <span className="absolute inset-y-0 left-0 w-[2px] bg-orange-600 transition-all group-hover:w-full group-active:bg-orange-500"></span>
+            <button className="group relative inline-block overflow-hidden border border-orange-600 px-8 py-3 focus:outline-none focus:ring ">
+              <span className="absolute inset-y-0 left-0 w-[2px] bg-orange-600 transition-all group-hover:w-full group-active:bg-orange-500"></span>
 
-            <span className="relative text-sm font-medium text-orange-100 transition-colors group-hover:text-white">
-              Login
-            </span>
-          </button>
+              <span className="relative text-sm font-medium text-orange-100 transition-colors group-hover:text-white">
+                Login
+              </span>
+            </button>
           </Link>
         )}
       </ul>
