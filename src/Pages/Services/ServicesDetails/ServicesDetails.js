@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import UseTitle from '../../Hooks/UseTitle';
+
 import ServicesDetailsSection from './ServicesDetailsSection';
 import ServicesReviewsSection from './ServicesReviewsSection';
 

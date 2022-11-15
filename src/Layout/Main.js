@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../Pages/Header/Header';
-import MainFooter from '../Pages/MainFooter/MainFooter';
+import Header from '../Pages/Shared/Header/Header'
+import MainFooter from '../Pages/Shared/MainFooter/MainFooter';
 
 
 

@@ -4,19 +4,20 @@ import Main from '../Layout/Main';
 import  ErrorPage from '../Pages/ErrorPage/ErrorPage' 
 import Home from '../Pages/Home/Home';
 import Blog from '../Pages/Blog/Blog'
-import BlogDetails from '../Pages/BlogDetails/BlogDetails'
+import BlogDetails from '../Pages/Blog/BlogDetails/BlogDetails'
 import Services from '../Pages/Services/Services';
-import ServicesDetails from '../Pages/ServicesDetails/ServicesDetails';
+import ServicesDetails from '../Pages/Services/ServicesDetails/ServicesDetails';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
 import TermsAndCondition from '../Pages/Others/TermsAndCondition';
-import Contact from '../Pages/Others/Contact'
+import Contact from '../Pages/Contact/Contact'
 import ForgotPassword from '../Pages/ForgotPassword/ForgotPassword';
 import MyReviews from '../Pages/Reviews/MyReviews/MyReviews';
 import AddMyservices from '../Pages/MyServices/AddMyservices';
-import ServicesReviewsSection from '../Pages/ServicesDetails/ServicesReviewsSection';
 import UpdateReviews from '../Pages/Reviews/UpdateReviews';
 import PrivateRoute from './PrivateRoute';
+import UpdateProfile from '../Pages/Profile/UpdateProfile';
+import Profile from '../Pages/Profile/Profile';
 
 
 
@@ -48,7 +49,7 @@ const Routes = createBrowserRouter([
             {
                 path:'/services/:id',
                 element:<ServicesDetails></ServicesDetails>,
-                loader:({params})=> fetch(`https://cleaner-guy-server.vercel.app/services/${params.id}`)
+                loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`)
       
             },
 
@@ -87,7 +88,7 @@ const Routes = createBrowserRouter([
             {
                 path:'/myReviews/:id',
                 element:<PrivateRoute><UpdateReviews></UpdateReviews></PrivateRoute>,
-                loader:({params})=> fetch(`https://cleaner-guy-server.vercel.app/reviews/${params.id}`)
+                loader:({params})=> fetch(`http://localhost:5000/reviews/${params.id}`)
       
             },
             {
@@ -96,7 +97,14 @@ const Routes = createBrowserRouter([
       
             },
        
-           
+           {
+                path: '/updateProfile',
+                element:<PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>,
+           },
+           {
+                path: '/profile',
+                element:<Profile></Profile>,
+           },
           
            
            
@@ -105,12 +113,12 @@ const Routes = createBrowserRouter([
             {
                 path:'/blog',
                 element: <Blog></Blog>,
-                loader:()=>fetch('https://cleaner-guy-server.vercel.app/blog')
+                loader:()=>fetch('http://localhost:5000/blog')
             },
             {
                 path:'/blog/:id',
                 element: <BlogDetails></BlogDetails>,
-                loader:({params})=>fetch(`https://cleaner-guy-server.vercel.app/blog/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
             },
            
            

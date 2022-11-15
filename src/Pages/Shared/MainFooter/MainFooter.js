@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../Assets/logo/logo_black.png'
+import logo from '../../../Assets/logo/logo_black.png'
 
 const MainFooter = () => {
     return (

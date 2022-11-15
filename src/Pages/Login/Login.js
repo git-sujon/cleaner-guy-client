@@ -28,7 +28,7 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
 
     login(email, password)
     .then((res) => {
@@ -41,7 +41,7 @@ const Login = () => {
 
  // JWT Token Implement
 
- fetch(`https://cleaner-guy-server.vercel.app/jwt`, {
+ fetch(`http://localhost:5000/jwt`, {
   method: "POST",
   headers: {
     "content-type": "application/json",
@@ -50,7 +50,7 @@ const Login = () => {
 })
   .then((res) => res.json())
   .then((data) => {
-    console.log(data);
+
     // Local Storage is not the best placee to  store
     localStorage.setItem("CleanerGuy", data.token);
 
@@ -87,7 +87,7 @@ const Login = () => {
 
  // JWT Token Implement
 
- fetch(`https://cleaner-guy-server.vercel.app/jwt`, {
+ fetch(`http://localhost:5000/jwt`, {
   method: "POST",
   headers: {
     "content-type": "application/json",
@@ -96,7 +96,7 @@ const Login = () => {
 })
   .then((res) => res.json())
   .then((data) => {
-    console.log(data);
+
     // Local Storage is not the best placee to  store
     localStorage.setItem("CleanerGuy", data.token);
 
@@ -178,7 +178,7 @@ const Login = () => {
           <div className="mt-4">
             <label
               className="block mb-2 text-sm font-medium text-black "
-              forHtml="LoggingEmailAddress"
+              forhtml="LoggingEmailAddress"
             >
               Email Address
             </label>
@@ -194,7 +194,7 @@ const Login = () => {
             <div className="flex justify-between">
               <label
                 className="block mb-2 text-sm font-medium text-black "
-                forHtml="loggingPassword"
+                forhtml="loggingPassword"
               >
                 Password
               </label>

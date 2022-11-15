@@ -40,7 +40,7 @@ const UpdateReviews = () => {
       }
   
 
-          fetch(`https://cleaner-guy-server.vercel.app/reviews/${reviews._id}`, {
+          fetch(`http://localhost:5000/reviews/${reviews._id}`, {
         method: "Put",
         headers: {
           "content-type": "application/json",
@@ -49,7 +49,7 @@ const UpdateReviews = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-        console.log(data)
+  
       
           if (data.modifiedCount > 0) {
             switch (ratingsValue) {
@@ -189,7 +189,7 @@ const UpdateReviews = () => {
                 rows="3"
                 name="reviewText"
                 required
-                defaultValue={reviews.reviewText}
+                defaultValue={reviews?.reviewText}
                 placeholder="Message..."
                 className="p-4 border border-stone-700 rounded-md resize-none dark:text-black dark:bg-green-100"
               ></textarea>

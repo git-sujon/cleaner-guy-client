@@ -16,7 +16,7 @@ const ForgotPassword = () => {
             toast.success("Check Your Email")
         })
         .catch(err=> {
-            console.log(err);
+            console.error(err);
         })
     }
 
@@ -47,7 +47,7 @@ const ForgotPassword = () => {
                         onSubmit={passwordResetHandler}
                          className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
 							<div className="mb-4">
-								<label className="block mb-2 text-sm font-bold text-gray-700" for="email">
+								<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
 									Email
 								</label>
 								<input

@@ -1,8 +1,8 @@
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useContext, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "../../Assets/logo/logo_white.png";
-import { AuthContext } from "../../Contexts/AuthProvider";
+import { Link, NavLink } from "react-router-dom";
+import logo from "../../../Assets/logo/logo_white.png";
+import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -30,7 +30,7 @@ const Header = () => {
             onClick={() => setOpen(!open)}
             className="w-10 text-white"
             name="menu"
-            onclick="Menu(this)"
+            
           ></Bars3Icon>
         </span>
       </div>
@@ -97,24 +97,27 @@ const Header = () => {
         </li>
 
         {user?.email ? (
-          <button
-            onClick={signOutHandler}
-            className="group relative inline-block overflow-hidden border border-orange-600 px-8 py-3 focus:outline-none focus:ring "
-          >
-            <span class="absolute inset-y-0 left-0 w-[2px] bg-orange-600 transition-all group-hover:w-full group-active:bg-orange-500"></span>
 
-            <span class="relative text-sm font-medium text-orange-100 transition-colors group-hover:text-white">
-              LogOut
-            </span>
-          </button>
+          <div className="flex items-center"> <button
+          onClick={signOutHandler}
+          className="group relative inline-block overflow-hidden border border-orange-600 px-8 py-3 focus:outline-none focus:ring "
+        >
+          <span className="absolute inset-y-0 left-0 w-[2px] bg-orange-600 transition-all group-hover:w-full group-active:bg-orange-500"></span>
+
+          <span className="relative text-sm font-medium text-orange-100 transition-colors group-hover:text-white">
+            LogOut
+          </span>
+        </button><Link to='/profile' className="ml-3">  <img className="w-12  rounded-full  border-2 border-white" src={user?.photoURL} alt=""/></Link></div>
+
+         
         ) : (
           <Link to="/login">
               <button
             className="group relative inline-block overflow-hidden border border-orange-600 px-8 py-3 focus:outline-none focus:ring "
           >
-            <span class="absolute inset-y-0 left-0 w-[2px] bg-orange-600 transition-all group-hover:w-full group-active:bg-orange-500"></span>
+            <span className="absolute inset-y-0 left-0 w-[2px] bg-orange-600 transition-all group-hover:w-full group-active:bg-orange-500"></span>
 
-            <span class="relative text-sm font-medium text-orange-100 transition-colors group-hover:text-white">
+            <span className="relative text-sm font-medium text-orange-100 transition-colors group-hover:text-white">
               Login
             </span>
           </button>

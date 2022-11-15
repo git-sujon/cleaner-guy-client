@@ -1,25 +1,25 @@
 import userEvent from "@testing-library/user-event";
 import React, { useContext, useState , useEffect} from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../Contexts/AuthProvider";
-import ReviewCard from "../Reviews/ReviewCard";
-import ReviewForm from "../Reviews/ReviewForm";
-import Sppiner from '../Others/Sppiner'
+import { AuthContext } from "../../../Contexts/AuthProvider";
+import ReviewCard from "../../Reviews/ReviewCard";
+import ReviewForm from "../../Reviews/ReviewForm";
+import Sppiner from '../../Others/Sppiner'
 
 const ServicesReviewsSection = ({service}) => {
   const { user } = useContext(AuthContext);
   const [allReviews, setAllReviews] = useState([])
-  console.log(allReviews)
+
   
 
   // loaded Reviews 
   useEffect(()=> {
-    fetch(`https://cleaner-guy-server.vercel.app/allreviews?id=${service._id}`)
+    fetch(`http://localhost:5000/allreviews`)
     .then(res => res.json())
     .then(data => {
       setAllReviews(data)
     })
-  }, [service._id])
+  }, [service?._id])
 
   return (
     <div className="col-span-2 shadow">
@@ -62,7 +62,7 @@ const ServicesReviewsSection = ({service}) => {
         )}
 
        <div className="flex flex-col gap-y-5">
-       {allReviews.map((reviews) => (
+       {allReviews?.map((reviews) => (
           <ReviewCard key={reviews._id} reviews={reviews}></ReviewCard>
         ))}
        </div>

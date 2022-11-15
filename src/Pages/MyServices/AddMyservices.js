@@ -30,7 +30,7 @@ const {user} = useContext(AuthContext)
         description_one,
       };
 
-    fetch(`https://cleaner-guy-server.vercel.app/services`, {
+    fetch(`http://localhost:5000/services`, {
         method:"POST", 
         headers: {
             "content-type": "application/json"
@@ -39,7 +39,7 @@ const {user} = useContext(AuthContext)
     })
     .then(res=> res.json())
     .then(data => {
-        console.log(data);
+
         navigate('/services')
     })
     .catch(err=> console.log(err))
@@ -106,7 +106,7 @@ const {user} = useContext(AuthContext)
                 {/* title  */}
 
                 <div>
-                  <label className="sr-only" for="name">
+                  <label className="sr-only" htmlFor="name">
                     Title
                   </label>
                   <input
@@ -121,7 +121,7 @@ const {user} = useContext(AuthContext)
                 {/* title  */}
 
                 <div>
-                  <label className="sr-only" for="email">
+                  <label className="sr-only" htmlFor="email">
                     Add a image url
                   </label>
                   <input
@@ -139,6 +139,8 @@ const {user} = useContext(AuthContext)
                     <p className="mr-3 text-gray-400">Add Services Rating</p>
                     <select
                       className="w-1/5 bg-emerald-300  font-bold"
+                      defaultValue={5}
+        
                       onChange={(event) =>
                         setRating(event.target.value)
                       }
@@ -147,14 +149,14 @@ const {user} = useContext(AuthContext)
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
-                      <option selected value="5">
+                      <option value="5">
                         5
                       </option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="sr-only" for="phone">
+                    <label className="sr-only" htmlFor="phone">
                       Price
                     </label>
                     <input
@@ -169,7 +171,7 @@ const {user} = useContext(AuthContext)
                 </div>
 
                 <div>
-                  <label className="sr-only" for="message">
+                  <label className="sr-only" htmlFor="message">
                     Services Description
                   </label>
                   <textarea

@@ -5,7 +5,7 @@ import UseTitle from "../../Hooks/UseTitle";
 
 import Sppiner from "../Others/Sppiner";
 import Pagination from "../Pagination/Pagination";
-import ServicesCard from "../ServicesCard/ServicesCard";
+import ServicesCard from "../Services/ServicesCard/ServicesCard";
 import HomeBanner from "./HomeBanner";
 import HomeImageWithGrid from "./HomeImageWithGrid";
 import LetUsCallYou from "./LetUsCallYou";
@@ -27,7 +27,7 @@ const Home = () => {
   useEffect(() => {
 
     const unSubscribe = fetch(
-      `https://cleaner-guy-server.vercel.app/services?page=${page}&size=${size}`
+      `http://localhost:5000/services?page=${page}&size=${size}`
     )
       .then((res) => {
         return res.json();

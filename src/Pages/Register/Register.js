@@ -30,7 +30,7 @@ const Register = () => {
         
         createAccount(email, password)
         .then((res) => {
-          console.log(res);
+
           handelUserInformationProviding(name, photoUrl);
           form.reset();
           setLoading(false);
@@ -45,7 +45,7 @@ const Register = () => {
     
      // JWT Token Implement
     
-     fetch(`https://cleaner-guy-server.vercel.app/jwt`, {
+     fetch(`http://localhost:5000/jwt`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -54,7 +54,7 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+
         // Local Storage is not the best placee to  store
         localStorage.setItem("CleanerGuy", data.token);
     
@@ -104,7 +104,7 @@ const Register = () => {
     
      // JWT Token Implement
     
-     fetch(`https://cleaner-guy-server.vercel.app/jwt`, {
+     fetch(`http://localhost:5000/jwt`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -113,7 +113,7 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+
         // Local Storage is not the best placee to  store
         localStorage.setItem("CleanerGuy", data.token);
     
@@ -198,7 +198,7 @@ const Register = () => {
           <div className="mt-4">
             <label
               className="block mb-2 text-sm font-medium text-black "
-              forHtml="LoggingEmailAddress"
+              forhtml="LoggingEmailAddress"
             >
               Name
             </label>
@@ -213,7 +213,7 @@ const Register = () => {
           <div className="mt-4">
             <label
               className="block mb-2 text-sm font-medium text-black "
-              forHtml="LoggingEmailAddress"
+              forhtml="LoggingEmailAddress"
             >
               Your Photo Url
             </label>
@@ -230,7 +230,7 @@ const Register = () => {
           <div className="mt-4">
             <label
               className="block mb-2 text-sm font-medium text-black "
-              forHtml="LoggingEmailAddress"
+              forhtml="LoggingEmailAddress"
             >
               Email Address
             </label>
@@ -246,7 +246,7 @@ const Register = () => {
             <div className="flex justify-between">
               <label
                 className="block mb-2 text-sm font-medium text-black "
-                forHtml="loggingPassword"
+                forhtml="loggingPassword"
               >
                 Password
               </label>

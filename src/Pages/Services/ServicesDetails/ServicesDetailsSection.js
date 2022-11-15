@@ -1,6 +1,6 @@
 import React from "react";
-import UseTitle from "../../Hooks/UseTitle";
-import ServicesReviews from "../Others/ServicesReviews";
+import UseTitle from "../../../Hooks/UseTitle";
+import ServicesReviews from "../../Others/ServicesReviews";
 
 const ServicesDetailsSection = ({ service }) => {
   const { title, img_card, _id, description_one, price, rating } = service;

@@ -36,7 +36,7 @@ const ReviewForm = ({service}) => {
       return toast.error("Please Give a Rating")
     }
 
-    fetch(`https://cleaner-guy-server.vercel.app/reviews`, {
+    fetch(`http://localhost:5000/reviews`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import UseTitle from "../../Hooks/UseTitle";
 import Sppiner from "../Others/Sppiner";
-import ServicesCard from "../ServicesCard/ServicesCard";
+import ServicesCard from "./ServicesCard/ServicesCard";
 
 const Services = () => {
   UseTitle('Services')
   const [services, setServices] = useState([]);
-  console.log(services)
+
 
 
   const [count, setCount] = useState(0);
@@ -18,7 +18,7 @@ const Services = () => {
 
   useEffect(() => {
     const unSubscribe = fetch(
-      `https://cleaner-guy-server.vercel.app/services?page=${page}&size=${size}`
+      `http://localhost:5000/services?page=${page}&size=${size}`
     )
       .then((res) => {
         return res.json();
