@@ -2,11 +2,12 @@ import axios from 'axios';
 import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import UseTitle from '../../Hooks/UseTitle';
 import WellComeing from '../Others/WellComeing';
 
 
 const Profile = () => {
-
+  UseTitle('Profile')
   const {user} = useContext(AuthContext)
 
   const withUs= new Date(user?.metadata?.creationTime).toDateString()
