@@ -130,27 +130,7 @@ const Header = () => {
           </NavLink>
         </li>
 
-        {user?.email && (
-          <>
-            <li className="mx-4 my-6 md:my-0">
-              <NavLink
-                to="/addMyService"
-                className="text-md font-bold hover:text-cyan-300 duration-500"
-              >
-                Add Services
-              </NavLink>
-            </li>
 
-            <li className="mx-4 my-6 md:my-0">
-              <NavLink
-                to="myReviews"
-                className="text-md font-bold hover:text-cyan-300 duration-500"
-              >
-                My Reviews
-              </NavLink>
-            </li>
-          </>
-        )}
 
         <li className="mx-4 my-6 md:my-0">
           <NavLink
