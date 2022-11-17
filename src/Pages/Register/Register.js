@@ -45,7 +45,7 @@ const Register = () => {
     
      // JWT Token Implement
     
-     fetch(`http://localhost:5000/jwt`, {
+     fetch(`https://cleaner-guy-server.vercel.app/jwt`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -104,7 +104,7 @@ const Register = () => {
     
      // JWT Token Implement
     
-     fetch(`http://localhost:5000/jwt`, {
+     fetch(`https://cleaner-guy-server.vercel.app/jwt`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

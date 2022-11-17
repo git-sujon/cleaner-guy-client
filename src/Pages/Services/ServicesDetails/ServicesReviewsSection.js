@@ -14,7 +14,7 @@ const ServicesReviewsSection = ({service}) => {
 
   // loaded Reviews 
   useEffect(()=> {
-    fetch(`http://localhost:5000/allreviews`)
+    fetch(`https://cleaner-guy-server.vercel.app/allreviews`)
     .then(res => res.json())
     .then(data => {
       setAllReviews(data)

@@ -40,7 +40,7 @@ const UpdateReviews = () => {
       }
   
 
-          fetch(`http://localhost:5000/reviews/${reviews._id}`, {
+          fetch(`https://cleaner-guy-server.vercel.app/reviews/${reviews._id}`, {
         method: "Put",
         headers: {
           "content-type": "application/json",

@@ -14,7 +14,7 @@ const Profile = () => {
   const [reviewCount,setReviewCount ] = useState([])
 
   useEffect(()=>{
-    axios.get(`http://localhost:5000/reviews?userEmail=${user?.email}`, {
+    axios.get(`https://cleaner-guy-server.vercel.app/reviews?userEmail=${user?.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("CleanerGuy")}`,
       },

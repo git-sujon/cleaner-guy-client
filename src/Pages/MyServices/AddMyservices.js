@@ -6,55 +6,53 @@ import { AuthContext } from "../../Contexts/AuthProvider";
 import UseTitle from "../../Hooks/UseTitle";
 
 const AddMyservices = () => {
-  UseTitle('Add Services')
-const {user} = useContext(AuthContext)
+  UseTitle("Add Services");
+  const { user } = useContext(AuthContext);
+  const [watchServices, setWatchServices] = useState();
+
 
   const [rating, setRating] = useState(5);
-  const navigate= useNavigate()
+  const navigate = useNavigate();
 
   const addServicesHandler = (event) => {
     event.preventDefault();
     const form = event.target;
-    const title= form.title.value
-    const price = form.servicesPrice.value
-    const img_card =form.imgUrl.value
-    const description_one = form.description.value
+    const title = form.title.value;
+    const price = form.servicesPrice.value;
+    const img_card = form.imgUrl.value;
+    const description_one = form.description.value;
     // console.log(title, price, img_card, description_one,rating)
 
     const services = {
-
-        title ,
-        rating,
-        img_card,
-        price,
-        description_one,
-      };
-
-    fetch(`http://localhost:5000/services`, {
-        method:"POST", 
-        headers: {
-            "content-type": "application/json"
-        },
-        body:JSON.stringify(services)
-    })
-    .then(res=> res.json())
-    .then(data => {
-
-        navigate('/services')
-    })
-    .catch(err=> console.log(err))
-
+      title,
+      rating,
+      img_card,
+      price,
+      description_one,
+    };
 
     
-
-  }
+    fetch(`https://cleaner-guy-server.vercel.app/services`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(services),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        navigate("/services");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
       <section className="bg-gray-100">
-      <h1 className="text-5xl text-center pt-5 font-bold text-emerald-700">ADD A Services</h1>
+        <h1 className="text-5xl text-center pt-5 font-bold text-emerald-700">
+          ADD A Services
+        </h1>
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-           
           <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
             {/* Live ShowCase  */}
 
@@ -140,18 +138,13 @@ const {user} = useContext(AuthContext)
                     <select
                       className="w-1/5 bg-emerald-300  font-bold"
                       defaultValue={5}
-        
-                      onChange={(event) =>
-                        setRating(event.target.value)
-                      }
+                      onChange={(event) => setRating(event.target.value)}
                     >
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
-                      <option value="5">
-                        5
-                      </option>
+                      <option value="5">5</option>
                     </select>
                   </div>
 
@@ -217,5 +210,3 @@ const {user} = useContext(AuthContext)
 };
 
 export default AddMyservices;
-
-
